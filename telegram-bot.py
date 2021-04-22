@@ -37,7 +37,7 @@ def run():
 def dataframe():
 
     sleep= 0.5
-    bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{}---------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
+    bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{} UTC-----------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
     df = pd.DataFrame({'Moneda':CURRENCY,'Precio Compra':PRICES, 'Cantidad: ': AMOUNT })
     df['Total inversion USD'] = df['Precio Compra']*df['Cantidad: ']
     df['Precio Actual']= run()
@@ -60,9 +60,9 @@ def dataframe():
 
 if __name__ == '__main__':
 
-    schedule.every().day.at("20:22").do(dataframe)
-    schedule.every().day.at("15:00").do(dataframe)
-    schedule.every().day.at("21:00").do(dataframe)
+    schedule.every().day.at("13:00").do(dataframe)
+    schedule.every().day.at("20:00").do(dataframe)
+    schedule.every().day.at("03:00").do(dataframe)
 
     while True:
         schedule.run_pending()
