@@ -4,9 +4,9 @@ import time
 import pandas as pd
 import schedule
 
-CURRENCY = ['Binance Coin','Litecoin', 'Bitcoin', 'Ethereum Classic', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink']
-PRICES = [583.94,259.56,55336,34.20,1.25,0.246,27.65,0.5393,37.92]
-AMOUNT = [2.226,3.46,0.009035,8.77,160.4,407,5.424,278.1,4.12]
+CURRENCY = ['Binance Coin','Litecoin', 'Bitcoin', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink']
+PRICES = [583.94,259.56,55336,45.10,1.25,0.246,27.65,0.5393,37.92]
+AMOUNT = [2.226,3.46,0.009035,6.69,160.4,407,5.424,278.1,4.12]
 
 
 def bot_send_text(bot_message):
