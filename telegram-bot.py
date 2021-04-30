@@ -5,8 +5,9 @@ import pandas as pd
 import schedule
 
 CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink','Dogecoin', 'Swipe']
-PRICES = [583.94,259.56,40.183,45.10,1.25,0.246,27.65,0.5393,37.92,0.320, 4.888]
-AMOUNT = [2.226,3.46,7.465,6.69,160.4,407,5.424,278.1,4.12,312.3,20.471]
+SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'ADA', 'VET','CAKE', 'MATIC' ,'LINK','DOGE', 'SXP']
+PRICES = [583.94,259.56,40.183,45.10,1.25,0.246,27.65,0.8021,37.92,0.320, 4.888]
+AMOUNT = [2.226,3.46,7.465,6.69,160.4,407,5.424,187,4.12,312.3,20.471]
 
 
 def bot_send_text(bot_message):
