@@ -12,7 +12,7 @@ AMOUNT = [2.226,3.46,7.465,6.69,160.4,407,5.424,187,4.12,126,20.471]
 
 def bot_send_text(bot_message):
 
-      bot_token = '1708867172:AAE6Y2blw4Nnp-Tqs60AgkWEZpPq_XY5r3s'
+      bot_token = '1631795024:AAHwTHG7xWBcIACxBaiLSp0bDenbYkF5414'
       bot_chatID = '1139403272'
       send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
       response = requests.get(send_text)
