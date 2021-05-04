@@ -40,7 +40,7 @@ def dataframe():
     sleep= 0.5
     bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{} UTC-----------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
     df = pd.DataFrame({'Moneda':CURRENCY,'Precio Compra':PRICES, 'Cantidad: ': AMOUNT })
-    df['Total inversion USD'] = df['Precio Compra']*df['Cantidad: ']
+    df['Total inversion USD'] = round(df['Precio Compra']*df['Cantidad: '],1)
     df['Precio Actual']= run()
     df['Inversion Actual USD'] = df['Precio Actual']*df['Cantidad: ']
     df['% Rendimiento'] = round((df['Inversion Actual USD']-df['Total inversion USD'])/df['Total inversion USD']*100,2)
@@ -49,7 +49,7 @@ def dataframe():
     final_inves = round(df['Inversion Actual USD'].sum(),2)
     rendi_final = round(((final_inves-initial_inves)/initial_inves)*100,2)
     for i in range(0,len(df['Moneda'])):
-        bot_send_text('El rendimiento de {} fue de {}% equilavente a {} USD.'.format(df['Moneda'][i],df['% Rendimiento'][i],df['% USD'][i]))
+        bot_send_text('La inversion inicial de {} fue de {} USD teniendo un rendimiento de {}% equilavente a {} USD.'.format(df['Moneda'][i],df['Total inversion USD'][i],df['%Rendimiento'][i],df['% USD'][i]))
         time.sleep(sleep)
     bot_send_text('Su inversion inicial fue de {} USD.'.format(initial_inves))
     time.sleep(sleep)
@@ -61,9 +61,9 @@ def dataframe():
 
 if __name__ == '__main__':
 
-    schedule.every().day.at("13:00").do(dataframe)
+    schedule.every().day.at("12:30").do(dataframe)
     schedule.every().day.at("20:00").do(dataframe)
-    schedule.every().day.at("03:00").do(dataframe)
+    schedule.every().day.at("02:30").do(dataframe)
 
     while True:
         schedule.run_pending()
