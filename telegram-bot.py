@@ -43,7 +43,7 @@ def dataframe():
     df['Total inversion USD'] = round(df['Precio Compra']*df['Cantidad: '],1)
     df['Precio Actual']= run()
     df['Inversion Actual USD'] = df['Precio Actual']*df['Cantidad: ']
-    df['% Rendimiento'] = round((df['Inversion Actual USD']-df['Total inversion USD'])/df['Total inversion USD']*100,2)
+    df['%Rendimiento'] = round((df['Inversion Actual USD']-df['Total inversion USD'])/df['Total inversion USD']*100,2)
     df['% USD'] = round(df['Inversion Actual USD']-df['Total inversion USD'],1)
     initial_inves = round(df['Total inversion USD'].sum(),2)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
     schedule.every().day.at("12:30").do(dataframe)
     schedule.every().day.at("20:00").do(dataframe)
-    schedule.every().day.at("02:30").do(dataframe)
+    schedule.every().day.at("02:35").do(dataframe)
 
     while True:
         schedule.run_pending()
