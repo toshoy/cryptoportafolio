@@ -4,10 +4,10 @@ import time
 import pandas as pd
 import schedule
 
-CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink','Fantom', 'Swipe']
-SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'ADA', 'VET','CAKE', 'MATIC' ,'LINK','FTM', 'SXP']
-PRICES = [583.94,259.56,40.183,45.10,1.25,0.246,27.65,0.8021,37.92,0.79701, 4.888]
-AMOUNT = [2.226,3.46,7.465,6.69,160.4,407,5.424,187,4.12,126,20.471]
+CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink','Fantom', 'Swipe', 'Polygon', 'Dogecoin' ]
+SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'ADA', 'VET','CAKE', 'MATIC' ,'LINK','FTM', 'SXP', 'MATIC', 'DOGE']
+PRICES = [583.94,303.19,40.183,45.10,1.25,0.246,27.65,0.8021,43.132,0.79701, 4.888, 0.71761, 0.54208]
+AMOUNT = [2.226,1.98,7.465,6.69,160.4,407,5.424,187,5.80,126,20.471,141.40, 184.40]
 
 
 def bot_send_text(bot_message):
