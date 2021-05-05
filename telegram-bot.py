@@ -6,10 +6,10 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink','Fantom', 'Swipe', 'Polygon', 'Dogecoin' ]
-SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'ADA', 'VET','CAKE', 'MATIC' ,'LINK','FTM', 'SXP', 'MATIC', 'DOGE']
-PRICES = [583.94,303.19,40.183,45.10,1.25,0.246,27.65,0.8021,43.132,0.79701, 4.888, 0.71761, 0.54208]
-AMOUNT = [2.226,1.98,7.465,6.69,160.4,407,5.424,187,5.80,126,20.471,141.40, 184.40]
+CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink','Chainlink', 'Swipe', 'Polygon', 'Dogecoin', 'Polygon' ]
+SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'ADA', 'VET','CAKE', 'MATIC' ,'LINK','LINK', 'SXP', 'MATIC', 'DOGE', 'MATIC']
+PRICES = [583.94,314.75,40.183,45.10,1.25,0.246,27.65,0.8021,43.132,49.4320, 4.888, 0.71761, 0.54208, 0.82094]
+AMOUNT = [2.226,1.906,7.465,6.69,160.4,407,5.424,187,5.80,1.01,20.471,141.40, 184.40, 62.40]
 
 
 def bot_send_text(bot_message):
