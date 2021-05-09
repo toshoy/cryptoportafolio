@@ -8,8 +8,9 @@ from os import environ
 
 CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Cardano', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink', 'Swipe', 'Tron' ]
 SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'ADA', 'VET','CAKE', 'MATIC' ,'LINK','SXP', 'TRX']
-PRICES = [583.94,314.75,40.183,45.10,1.25,0.246,27.65,0.772,44.070, 4.888, 0.14437]
-AMOUNT = [2.226,1.906,7.465,6.69,160.4,407,5.424,391,6.81,20.471, 694.4]
+PRICES = [583.94,314.75,40.183,45.10,1.25,0.2339,27.65,1.02373 ,44.070, 4.888, 0.14437]
+AMOUNT = [2.226,1.906,7.465,6.69,160.4,1070.51,5.424,146.5,6.81,20.471, 694.4]
+
 
 
 def bot_send_text(bot_message):
