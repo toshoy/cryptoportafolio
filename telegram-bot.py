@@ -6,10 +6,10 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Chiliz', 'VeChain', 'PancakeSwap', 'Polygon', 'Chainlink', 'Swipe', 'Tron' ]
-SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'CHZ', 'VET','CAKE', 'MATIC' ,'LINK','SXP', 'TRX']
-PRICES = [583.94,330.52,40.183,45.10,0.429,0.2339,27.65,1.11746 ,44.070, 4.888, 0.14437]
-AMOUNT = [2.226,2.0439,7.465,6.69,465.70,1070.51,5.424,67.11,6.81,20.471, 694.4]
+CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Chiliz', 'VeChain', 'PancakeSwap', 'Nano', 'Chainlink', 'Swipe', 'Tron' ]
+SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'CHZ', 'VET','CAKE', 'NANO' ,'LINK','SXP', 'TRX']
+PRICES = [583.94,330.52,40.183,45.10,0.429,0.2339,27.65,13.24 ,44.070, 4.888, 0.14437]
+AMOUNT = [2.226,2.0439,7.465,6.69,465.70,1070.51,5.424,5.66,6.81,20.471, 694.4]
 
 
 
