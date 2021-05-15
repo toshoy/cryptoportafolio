@@ -9,7 +9,8 @@ from os import environ
 CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Polygon', 'VeChain', 'PancakeSwap', 'Nano', 'Chainlink', 'Swipe', 'Tron' ]
 SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'MATIC', 'VET','CAKE', 'NANO' ,'LINK','SXP', 'TRX']
 PRICES = [583.94,330.52,40.183,45.10,1.63567,0.2339,27.65,13.24 ,44.070, 4.888, 0.14437]
-AMOUNT = [2.226,2.0439,7.465,6.69,123,2,1070.51,5.424,5.66,6.81,20.471, 694.4]
+AMOUNT = [2.226,2.0439,7.465,6.69,123.2,1070.51,5.424,5.66,6.81,20.471, 694.4]
+
 
 
 
