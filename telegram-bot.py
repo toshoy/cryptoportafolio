@@ -6,10 +6,10 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Binance Coin','Litecoin', 'Uniswap', 'Solana', 'Polygon', 'VeChain', 'PancakeSwap', 'Nano', 'Chainlink', 'Swipe', 'Tron' ]
-SYMBOLS = ['BNB','LTC','UNI', 'SOL', 'MATIC', 'VET','CAKE', 'NANO' ,'LINK','SXP', 'TRX']
-PRICES = [583.94,330.52,40.183,46.533,1.63567,0.2339,27.65,13.24 ,44.070, 4.888, 0.14437]
-AMOUNT = [2.226,2.0439,7.465,6.45,123.2,1070.51,5.424,5.66,6.81,20.471, 694.4]
+CURRENCY = ['Sushi Swap','Litecoin', 'Uniswap', 'Solana', 'Polygon', 'VeChain', 'PancakeSwap', 'Nano', 'Chainlink', 'Swipe', 'Tron' ]
+SYMBOLS = ['SUSHI','LTC','UNI', 'SOL', 'MATIC', 'VET','CAKE', 'NANO' ,'LINK','SXP', 'TRX']
+PRICES = [12.18,330.52,40.183,46.533,1.417,0.2339,27.65,13.24 ,44.070, 4.888, 0.14437]
+AMOUNT = [20.54,2.0439,7.465,6.45,319.20,1070.51,5.424,5.66,6.81,20.471, 694.4]
 
 
 
@@ -46,14 +46,14 @@ def dataframe():
     df = pd.DataFrame({'Moneda':CURRENCY,'Precio Compra':PRICES, 'Cantidad: ': AMOUNT })
     df['Total inversion USD'] = round(df['Precio Compra']*df['Cantidad: '],1)
     df['Precio Actual']= run()
-    df['Inversion Actual USD'] = df['Precio Actual']*df['Cantidad: ']
+    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad: '],1)
     df['%Rendimiento'] = round((df['Inversion Actual USD']-df['Total inversion USD'])/df['Total inversion USD']*100,2)
     df['% USD'] = round(df['Inversion Actual USD']-df['Total inversion USD'],1)
     initial_inves = round(df['Total inversion USD'].sum(),2)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
     rendi_final = round(((final_inves-initial_inves)/initial_inves)*100,2)
     for i in range(0,len(df['Moneda'])):
-        bot_send_text('La inversion inicial de {} fue de {} USD teniendo un rendimiento de {}% equilavente a {} USD.'.format(df['Moneda'][i],df['Total inversion USD'][i],df['%Rendimiento'][i],df['% USD'][i]))
+        bot_send_text('La inversion inicial de {} fue de {} USD teniendo un rendimiento de {}% equilavente a {} USD, teniendo un valor actual de {} USD.'.format(df['Moneda'][i],df['Total inversion USD'][i],df['%Rendimiento'][i],df['% USD'][i],df['Inversion Actual USD'][i] ))
         time.sleep(sleep)
     bot_send_text('Su inversion inicial fue de {} USD.'.format(initial_inves))
     time.sleep(sleep)
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     schedule.every().day.at("12:30").do(dataframe)
     schedule.every().day.at("20:00").do(dataframe)
-    schedule.every().day.at("02:35").do(dataframe)
+    schedule.every().day.at("02:30").do(dataframe)
 
     while True:
         schedule.run_pending()
