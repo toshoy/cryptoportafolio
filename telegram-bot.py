@@ -53,7 +53,7 @@ def dataframe():
     final_inves = round(df['Inversion Actual USD'].sum(),2)
     rendi_final = round(((final_inves-initial_inves)/initial_inves)*100,2)
     for i in range(0,len(df['Moneda'])):
-        bot_send_text('La inversion inicial de {} fue de {} USD teniendo un rendimiento de {}% equilavente a {} USD, teniendo un valor actual de {} USD.'.format(df['Moneda'][i],df['Total inversion USD'][i],df['%Rendimiento'][i],df['% USD'][i],df['Inversion Actual USD'][i] ))
+        bot_send_text('La inversion inicial de {} fue de {} USD teniendo un rendimiento de {}% ({} USD) , el valor actual es {} USD.'.format(df['Moneda'][i],df['Total inversion USD'][i],df['%Rendimiento'][i],df['% USD'][i],df['Inversion Actual USD'][i] ))
         time.sleep(sleep)
     bot_send_text('Su inversion inicial fue de {} USD.'.format(initial_inves))
     time.sleep(sleep)
