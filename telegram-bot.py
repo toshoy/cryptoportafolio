@@ -42,7 +42,7 @@ def dataframe():
 
     sleep= 0.4
     bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
-    df = pd.DataFrame({'Moneda':portafolio.CURRENCY, 'Cantidad': portafolio.AMOUNT, 'SYMBOL': portafolio.SYMBOL})
+    df = pd.DataFrame({'Moneda':CURRENCY, 'Cantidad': AMOUNT, 'SYMBOL':SYMBOL})
     df['Precio Actual']= run()
     df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad'],2)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
