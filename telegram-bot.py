@@ -6,10 +6,9 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Sushi Swap','Litecoin', 'Uniswap', 'Solana', 'Polygon', 'VeChain', 'PancakeSwap', 'Nano', 'Chainlink', 'Swipe', 'Tron' ]
-SYMBOLS = ['SUSHI','LTC','UNI', 'SOL', 'MATIC', 'VET','CAKE', 'NANO' ,'LINK','SXP', 'TRX']
-PRICES = [12.18,330.52,40.183,46.533,1.417,0.2339,27.65,13.24 ,44.070, 4.888, 0.14437]
-AMOUNT = [20.54,2.0439,7.465,6.45,319.20,1070.51,5.424,5.66,6.81,20.471, 694.4]
+CURRENCY = ['Sushi Swap', 'Uniswap', 'Solana', 'Polygon', 'PancakeSwap', 'Chainlink', 'Ethereum','Cardano' ,'Bitcoin', 'Theta', 'Mist', 'Dogecoin']
+SYMBOL = ['SUSHI', 'UNI', 'SOL', 'MATIC', 'CAKE', 'LINK', 'ETH','ADA' ,'BTC', 'THETA', 'MIST', 'DOGE']
+AMOUNT = [20.54,7.465,6.447,319.20,5.424,6.81,0.01289,189.430,0.00278,55.18,1824.91,292.5]
 
 
 
@@ -41,25 +40,17 @@ def run():
 
 def dataframe():
 
-    sleep= 0.5
-    bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{} UTC-----------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
-    df = pd.DataFrame({'Moneda':CURRENCY,'Precio Compra':PRICES, 'Cantidad: ': AMOUNT })
-    df['Total inversion USD'] = round(df['Precio Compra']*df['Cantidad: '],1)
+    sleep= 0.4
+    bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
+    df = pd.DataFrame({'Moneda':portafolio.CURRENCY, 'Cantidad': portafolio.AMOUNT, 'SYMBOL': portafolio.SYMBOL})
     df['Precio Actual']= run()
-    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad: '],1)
-    df['%Rendimiento'] = round((df['Inversion Actual USD']-df['Total inversion USD'])/df['Total inversion USD']*100,2)
-    df['% USD'] = round(df['Inversion Actual USD']-df['Total inversion USD'],1)
-    initial_inves = round(df['Total inversion USD'].sum(),2)
+    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad'],2)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
-    rendi_final = round(((final_inves-initial_inves)/initial_inves)*100,2)
     for i in range(0,len(df['Moneda'])):
-        bot_send_text('La inversion inicial de {} fue de {} USD teniendo un rendimiento de {}% ({} USD) , el valor actual es {} USD.'.format(df['Moneda'][i],df['Total inversion USD'][i],df['%Rendimiento'][i],df['% USD'][i],df['Inversion Actual USD'][i] ))
+        bot_send_text('{} - Amount: {} - Price: {} USD - TOTAL: {} USD '.format(df['SYMBOL'][i],df['Cantidad'][i],df['Precio Actual'][i],df['Inversion Actual USD'][i]))
         time.sleep(sleep)
-    bot_send_text('Su inversion inicial fue de {} USD.'.format(initial_inves))
-    time.sleep(sleep)
     bot_send_text('Su inversion actual es de {} USD.'.format(final_inves))
     time.sleep(sleep)
-    bot_send_text('Obteniendo un rendimiento del {}% equivalente al {} USD.'.format(rendi_final,round(final_inves-initial_inves,2) ))
     bot_send_text('--------------------------------GRACIAS------------------------------')
 
 
