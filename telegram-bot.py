@@ -8,7 +8,7 @@ from os import environ
 
 CURRENCY = ['Sushi Swap', 'Uniswap', 'Solana', 'Polygon', 'PancakeSwap', 'Chainlink', 'Ethereum','Cardano' ,'Bitcoin', 'Theta', 'Mist', 'Dogecoin']
 SYMBOL = ['SUSHI', 'UNI', 'SOL', 'MATIC', 'CAKE', 'LINK', 'ETH','ADA' ,'BTC', 'THETA', 'MIST', 'DOGE']
-AMOUNT = [20.54,7.465,6.447,319.20,5.424,6.81,0.01289,189.430,0.00278,55.18,1824.91,292.5]
+AMOUNT = [20.54,7.465,6.447,319.20,5.424,6.81,0.000001,189.430,0.000001,55.18,1824.91,292.5]
 
 
 
