@@ -6,9 +6,8 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Sushi Swap', 'Uniswap', 'Solana', 'Polygon', 'PancakeSwap', 'Chainlink', 'Ethereum','Cardano' ,'Bitcoin', 'Theta', 'Mist', 'Dogecoin']
-SYMBOL = ['SUSHI', 'UNI', 'SOL', 'MATIC', 'CAKE', 'LINK', 'ETH','ADA' ,'BTC', 'THETA', 'MIST', 'DOGE']
-AMOUNT = [20.54,7.465,6.447,319.20,5.424,6.81,0.000001,189.430,0.000001,55.18,1824.91,292.5]
+CURRENCY = ['Ethereum','Bitcoin', 'Verasity', 'Mist', 'PancakeSwap', 'Cardano', 'Polkadot New', 'Terra Luna', 'Polygon', 'Binance Coin', 'Terrausd']
+AMOUNT = [0.6407,0.02346,25372.82,8170,99.85,208.93,15.53,15.58,313.8,0.4751,806]
 
 
 
@@ -31,7 +30,7 @@ def run():
         i = '/currencies/'+i+'/'
         url = requests.get('https://coinmarketcap.com/'+ i)
         soup = BeautifulSoup(url.content, 'html.parser')
-        price = soup.find('div',{'class': 'priceValue___11gHJ'}).text
+        price = soup.find('div',{'class': 'priceValue'}).text
         price = price.strip()
         price = price.replace('$','')
         price = price.replace(',','')
@@ -41,17 +40,18 @@ def run():
 def dataframe():
 
     sleep= 0.4
-    bot_send_text('PORTAFOLIO DE INVERSION CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
-    df = pd.DataFrame({'Moneda':CURRENCY, 'Cantidad': AMOUNT, 'SYMBOL':SYMBOL})
+    bot_send_text('               PORTAFOLIO DE HODL CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
+    df = pd.DataFrame({'Moneda':portafolio.CURRENCY , 'Cantidad: ': portafolio.AMOUNT})
     df['Precio Actual']= run()
-    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad'],2)
+    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad: '],1)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
+
     for i in range(0,len(df['Moneda'])):
-        bot_send_text('{} - Amount: {} - Price: {} USD - TOTAL: {} USD '.format(df['SYMBOL'][i],df['Cantidad'][i],df['Precio Actual'][i],df['Inversion Actual USD'][i]))
+
+        bot_send_text('La precio actual  de {} es de {} USD y su inversion es de {} USD. '.format(df['Moneda'][i], df['Precio Actual'][i],df['Inversion Actual USD'][i]))
         time.sleep(sleep)
-    bot_send_text('Su inversion actual es de {} USD.'.format(final_inves))
-    time.sleep(sleep)
-    bot_send_text('--------------------------------GRACIAS------------------------------')
+    
+    bot_send_text('Su inversion total es  de {} USD o {} COP'.format(final_inves, final_inves*3700))
 
 
 if __name__ == '__main__':
