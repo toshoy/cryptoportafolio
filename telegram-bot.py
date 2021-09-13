@@ -41,7 +41,7 @@ def dataframe():
 
     sleep= 0.4
     bot_send_text('               PORTAFOLIO DE HODL CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
-    df = pd.DataFrame({'Moneda':portafolio.CURRENCY , 'Cantidad: ': portafolio.AMOUNT})
+    df = pd.DataFrame({'Moneda':CURRENCY , 'Cantidad: ': AMOUNT})
     df['Precio Actual']= run()
     df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad: '],1)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
@@ -52,6 +52,7 @@ def dataframe():
         time.sleep(sleep)
     
     bot_send_text('Su inversion total es  de {} USD o {} COP'.format(final_inves, final_inves*3700))
+
 
 
 if __name__ == '__main__':
