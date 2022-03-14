@@ -55,11 +55,11 @@ def dataframe():
 
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 
-    schedule.every().day.at("12:30").do(dataframe)
-    schedule.every().day.at("20:00").do(dataframe)
-    schedule.every().day.at("02:50").do(dataframe)
+#    schedule.every().day.at("12:30").do(dataframe)
+#    schedule.every().day.at("20:00").do(dataframe)
+#    schedule.every().day.at("02:50").do(dataframe)
 
-    while True:
-        schedule.run_pending()
+#    while True:
+#        schedule.run_pending()
