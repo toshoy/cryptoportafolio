@@ -6,8 +6,8 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Ethereum','Bitcoin', 'Verasity', 'Mist', 'PancakeSwap', 'Cardano', 'Polkadot New', 'Terra Luna', 'Polygon', 'Binance Coin', 'Terrausd']
-AMOUNT = [0.6407,0.02346,25372.82,8170,99.85,208.93,15.53,15.58,313.8,0.4751,806]
+CURRENCY = ['Ethereum','Fantom', 'Terra Luna','Mist', 'Bitcoin','Polkadot New', 'Oasis network' ,'Kadena', 'Cosmos','Thorchain','Osmosis','Bnb','Syscoin', 'Bloktopia', 'Moonriver', 'Fantohm','Demole', 'Strong' ]
+AMOUNT = [0.6206,1474.86,15.11,15566.72 ,0.01313,22.08,1507.85 ,43.59 ,10.27 ,33.54, 18.32, 0.4367, 108, 3013.55,0.8682,4, 950, 1]
 
 
 
@@ -39,27 +39,33 @@ def run():
 
 def dataframe():
 
-    sleep= 0.4
+    sleep= 0.01
     bot_send_text('               PORTAFOLIO DE HODL CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
     df = pd.DataFrame({'Moneda':CURRENCY , 'Cantidad: ': AMOUNT})
     df['Precio Actual']= run()
-    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad: '],1)
+    df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad'],1)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
 
     for i in range(0,len(df['Moneda'])):
 
-        bot_send_text('La precio actual  de {} es de {} USD y su inversion es de {} USD. '.format(df['Moneda'][i], df['Precio Actual'][i],df['Inversion Actual USD'][i]))
+        bot_send_text('{} {} - Precio: {} USD - Total  {} USD. '.format(df['Cantidad'][i], df['Moneda'][i], df['Precio Actual'][i],df['Inversion Actual USD'][i]))
         time.sleep(sleep)
     
+    
+    result = (final_inves*3700) - 45345000
+    result2 = round((result/45345000)*100,2)
+    
     bot_send_text('Su inversion total es  de {} USD o {} COP'.format(final_inves, final_inves*3700))
+    bot_send_text('Rentabilidad Actual $ {} COP o {} % '.format(result,result2))
 
 
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
 
-#    schedule.every().day.at("12:30").do(dataframe)
-#    schedule.every().day.at("20:00").do(dataframe)
-#    schedule.every().day.at("02:50").do(dataframe)
+    schedule.every().day.at("12:30").do(dataframe)
+    schedule.every().day.at("20:00").do(dataframe)
+    schedule.every().day.at("02:50").do(dataframe)
 
-#    while True:
-#        schedule.run_pending()
+    while True:
+        schedule.run_pending()
+
