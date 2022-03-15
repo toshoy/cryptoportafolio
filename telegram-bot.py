@@ -14,6 +14,7 @@ AMOUNT = [0.6206,1474.86,15.11,15566.72 ,0.01313,22.08,1507.85 ,43.59 ,10.27 ,33
 
 def bot_send_text(bot_message):
 
+
       bot_token = environ['bot_token']
       bot_chatID = environ['bot_chatID']
       send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
@@ -40,8 +41,8 @@ def run():
 def dataframe():
 
     sleep= 0.01
-    bot_send_text('               PORTAFOLIO DE HODL CRYPTOMONEDAS ---------------------{}---------{}--------------------'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
-    df = pd.DataFrame({'Moneda':CURRENCY , 'Cantidad: ': AMOUNT})
+    bot_send_text('------------------PORTAFOLIO -------------------------{}---------{}'.format(time.strftime("%d/%m/%y"),time.strftime("%H:%M")))
+    df = pd.DataFrame({'Moneda':CURRENCY , 'Cantidad':AMOUNT})
     df['Precio Actual']= run()
     df['Inversion Actual USD'] = round(df['Precio Actual']*df['Cantidad'],1)
     final_inves = round(df['Inversion Actual USD'].sum(),2)
@@ -57,8 +58,7 @@ def dataframe():
     
     bot_send_text('Su inversion total es  de {} USD o {} COP'.format(final_inves, final_inves*3700))
     bot_send_text('Rentabilidad Actual $ {} COP o {} % '.format(result,result2))
-
-
+    bot_send_text('***********************************************')
 
 if __name__ == '__main__':
 
