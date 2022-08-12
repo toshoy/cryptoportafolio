@@ -6,8 +6,8 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Ethereum','Fantom', 'Terra Luna','Mist', 'Bitcoin','Polkadot New', 'Oasis network' ,'Kadena', 'Cosmos','Thorchain','Osmosis','Bnb','Syscoin', 'Bloktopia', 'Moonriver', 'Fantohm','Demole', 'Strong' ]
-AMOUNT = [0.6206,1474.86,15.11,15566.72 ,0.01313,22.08,1507.85 ,43.59 ,10.27 ,33.54, 18.32, 0.4367, 108, 3013.55,0.8682,4, 950, 1]
+CURRENCY = ['Ethereum','Fantom', 'Terra Luna','Mist', 'Bitcoin','Polkadot New', 'Oasis network' ,'Kadena', 'Cosmos','Thorchain','Osmosis','Bnb','Syscoin', 'Bloktopia', 'Moonriver','Demole', 'Strong' ]
+AMOUNT = [0.6206,1474.86,15.11,15566.72 ,0.01313,22.08,1507.85 ,43.59 ,10.27 ,33.54, 18.32, 0.4367, 108, 3013.55,0.8682, 950, 7.31]
 
 
 
@@ -27,7 +27,6 @@ def run():
     for i in CURRENCY:
         i = i.lower().strip().replace(' ','-')
         url = requests.get('https://coinmarketcap.com/currencies/'+i+'/')
-        
         soup = BeautifulSoup(url.content, 'html.parser')
         price = soup.find('div',{'class': 'priceValue'}).text
         price = price.strip()
@@ -51,12 +50,12 @@ def dataframe():
         time.sleep(sleep)
     
     
-    result = (final_inves*3700) - 45345000
+    result = (final_inves*4100) - 45345000
     result2 = round((result/45345000)*100,2)
     
-    bot_send_text('Su inversion total es  de {} USD o {} COP'.format(final_inves, final_inves*3700))
+    bot_send_text('Su inversion total es  de {} USD o {} COP'.format(final_inves, final_inves*4100))
     bot_send_text('Rentabilidad Actual $ {} COP o {} % '.format(result,result2))
-    bot_send_text('***********************************************')
+    bot_send_text('--------------------------------GRACIAS------------------------------')
 
 if __name__ == '__main__':
 
