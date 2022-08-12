@@ -25,11 +25,8 @@ def run():
 
     Actual_prices = []
     for i in CURRENCY:
-        i = i.lower()
-        i = i.strip()
-        i = i.replace(' ','-')
-        i = '/currencies/'+i+'/'
-        url = requests.get('https://coinmarketcap.com/'+ i)
+        i = i.lower().strip().replace(' ','-')
+        url = requests.get('https://coinmarketcap.com/currencies/'+i+'/')
         soup = BeautifulSoup(url.content, 'html.parser')
         price = soup.find('div',{'class': 'priceValue'}).text
         price = price.strip()
