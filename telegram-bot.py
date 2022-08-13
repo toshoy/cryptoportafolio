@@ -6,7 +6,7 @@ import schedule
 import os
 from os import environ
 
-CURRENCY = ['Ethereum','Fantom','Mist', 'Bitcoin','Polkadot New', 'Oasis network' ,'Kadena', 'Cosmos','Thorchain','Osmosis','Bnb','Syscoin', 'Bloktopia', 'Moonriver','Demole', 'Strong' ]
+CURRENCY = ['Ethereum','Fantom','Mist', 'Bitcoin','Polkadot New', 'Oasis network' ,'Kadena', 'Cosmos','Thorchain','Osmosis','Bnb','Syscoin', 'Bloktopia', 'Moonriver','Demole', 'Stronger' ]
 AMOUNT = [0.6206,959.86,15333 ,0.01313,22.08,1534.85 ,43.59 ,10.27 ,37.37, 18.32, 0.4367, 108, 3013.55,0.8682, 950, 7.31]
 
 
